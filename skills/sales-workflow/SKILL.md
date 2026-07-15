@@ -40,7 +40,7 @@ Keep this workflow independent of any particular product, market, channel, or CR
 Do not treat any public email as equally useful for sales outreach. Apply this priority order:
 
 1. A named decision-maker or buyer with a verified role and professional email.
-2. An official `sales@`, `business@`, `partnerships@`, `commercial@`, `采购`, or `招商` address on the company website.
+2. An official `sales@`, `business@`, `partnerships@`, `commercial@`, or `procurement@` address on the company website.
 3. An official company-level `info@`, `enquiry@`, or `contact@` address when no better route is available.
 4. `support@`, `service@`, `help@`, `hello@`, and generic contact forms only as research clues, never as default sales recipients.
 
@@ -57,7 +57,7 @@ Required lead fields for outreach should include `contact_name`, `contact_role`,
 
 ## Manual contact lookup queue
 
-For every `decision_maker_found_no_email` lead, persist `manual_contact_lookup_request` with company name, website, decision-maker name, role, company association, contact/role source URLs, and the explicit request: “请协助提供或查找该负责人的可靠工作邮箱；系统不会猜测邮箱格式或自动发送。”
+For every `decision_maker_found_no_email` lead, persist `manual_contact_lookup_request` with company name, website, decision-maker name, role, company association, contact/role source URLs, and the explicit request: “Please help provide or locate a reliable professional email address for this decision-maker. The system will not guess an email format or send automatically.”
 
 - Set its list state to `waiting_for_user`, not `rejected` or `sent`.
 - At list completion, group all pending requests into one customer-facing lookup list through the configured `manual_contact_lookup.delivery` channel. Do not send the lookup list unless that channel is configured and authorized; otherwise present it in the current customer chat.

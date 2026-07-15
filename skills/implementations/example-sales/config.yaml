@@ -12,7 +12,7 @@ contact_list:
   path: null
   discovery:
     extensions: [.xlsx, .xls, .csv, .tsv]
-    filename_keywords: [contact, customer, client, lead, 客户, 联系人]
+    filename_keywords: [contact, customer, client, lead, prospect]
   sync_timing: immediately_after_verified_send
   final_decline_confirmed: false
 
@@ -32,7 +32,7 @@ manual_contact_lookup:
   delivery: customer_chat
   send_only_when_authorized: true
   required_fields: [company_name, website, contact_name, contact_role, company_association, contact_source_url, role_source_url]
-  customer_request: 请协助提供或查找该负责人的可靠工作邮箱；系统不会猜测邮箱格式或自动发送。
+  customer_request: Please help provide or locate a reliable professional email address for this decision-maker. The system will not guess an email format or send automatically.
 
 email:
   enabled: null

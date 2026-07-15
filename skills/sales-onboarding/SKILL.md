@@ -19,14 +19,14 @@ Run before the first sales run and whenever `setup.status` is not `ready`. Use p
 
 **Goal:** Determine whether and where Contact List may be updated.
 
-**Execution:** Search the project folder recursively for `.xlsx`, `.xls`, `.csv`, or `.tsv` filenames matching configured keywords (`contact`, `customer`, `client`, `lead`, `客户`, `联系人`). Show matches by filename only.
+**Execution:** Search the project folder recursively for `.xlsx`, `.xls`, `.csv`, or `.tsv` filenames matching configured keywords (`contact`, `customer`, `client`, `lead`, `prospect`). Show matches by filename only.
 
 **Decision gate:**
 
 1. If matches exist, ask the user to copy the exact filename into chat. Never select silently.
 2. If no match exists, ask whether they already have a Contact List. If yes, invite them to place it in the project folder and copy its filename into chat.
 3. If no file exists, ask whether to create a Contact List update folder.
-4. If automatic filling is declined, ask once more: “请确认：您不需要系统自动填写 Contact List，对吗？” Only a second explicit decline disables it.
+4. If automatic filling is declined, ask once more: “Please confirm that you do not want the system to update a Contact List automatically.” Only a second explicit decline disables it.
 
 **Success:** Existing filename confirmed, new folder approved, or final disable confirmation recorded.
 
@@ -44,10 +44,10 @@ Run before the first sales run and whenever `setup.status` is not `ready`. Use p
 2. If not connected, ask whether the user wants to connect Agent Mail.
 3. If yes, invite registration/sign-in at `https://agent.qq.com`, then provide this prompt:
 
-   `请阅读 https://agent.qq.com/doc/cli-setup.md 文档，按照步骤为我安装并配置 Agent Mail CLI。`
+   `Please read https://agent.qq.com/doc/cli-setup.md and follow the documented steps to install and configure Agent Mail CLI for me.`
 
    Confirm connection from a successful status signal; never assume it succeeded.
-4. If declined, ask once more: “请确认：您不需要邮件服务，只需要寻客服务，对吗？” Only a second explicit decline sets `email.enabled: false` and disables sending.
+4. If declined, ask once more: “Please confirm that you only need prospecting and do not want to use an email service.” Only a second explicit decline sets `email.enabled: false` and disables sending.
 
 **Success:** Connected mailbox verified or email disabled after final confirmation.
 
@@ -59,33 +59,33 @@ Run before the first sales run and whenever `setup.status` is not `ready`. Use p
 
 **Goal:** Collect only fields required by enabled features and update configuration from user-supplied values.
 
-Put required fields first and label each `（必填）`; all fields below the required sections are optional. If only prospecting is enabled and email is disabled, salesperson name and email are optional.
+Put required fields first and label each `(required)`; all fields below the required sections are optional. If only prospecting is enabled and email is disabled, salesperson name and email are optional.
 
 ```text
-请复制下面内容并填写。上方为必填项；没有标注“（必填）”的均为选填项。
+Please copy and complete the form below. Fields in the required sections are mandatory; all unmarked fields are optional.
 
-【必填项】
-公司产品信息（必填）：
-目标客户类型（必填）：
-目标国家/地区（必填）：
+[Required]
+Product or service information (required):
+Target customer profile (required):
+Target countries or regions (required):
 
-【启用邮件服务时必填】
-公司名称（必填）：
-业务员名字（必填）：
-联系邮箱（必填）：
+[Required when email is enabled]
+Company name (required):
+Salesperson name (required):
+Contact email (required):
 
-【启用 Contact List 自动更新时必填】
-Contact List 文件名或新建文件夹名称（必填）：
+[Required when automatic Contact List updates are enabled]
+Contact List filename or new folder name (required):
 
-【选填项】
-公司官网：
-业务员职位：
-电话/WhatsApp：
-产品卖点：
-最低起订量：
-邮件语气/语言：
-竞品品牌：
-其他备注：
+[Optional]
+Company website:
+Salesperson title:
+Phone or WhatsApp:
+Key product benefits:
+Minimum order quantity:
+Preferred email tone and language:
+Competitor brands:
+Additional notes:
 ```
 
 **Success:** All enabled-feature requirements are present and configuration validates.
@@ -97,4 +97,3 @@ Contact List 文件名或新建文件夹名称（必填）：
 ## Handoff
 
 With email enabled, start `sales-workflow`. With email disabled, skip outreach/send and record `Prospecting` or `Not Sent`, never `Sent`. With Contact List disabled, never create or modify it.
-

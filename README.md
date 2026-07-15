@@ -1,23 +1,23 @@
 # Sales Skills
 
-一组可复用、行业中立的 Codex 销售 Skills，用于完成销售项目初始化、潜在客户研究、可选邮件触达、Contact List 更新、跟进和结果汇报。
+A reusable, industry-neutral collection of Codex Skills for sales onboarding, prospect research, optional email outreach, contact-list updates, follow-up, and reporting.
 
-## 包含内容
+## What's included
 
-- `sales-onboarding`：通过对话完成销售项目初始化，确认 Contact List、邮件服务及必要业务信息。
-- `sales-workflow`：执行带检查点的通用销售流程，包括研究、筛选、触达、记录、跟进和汇报。
-- `example-sales`：可复制并按公司需求修改的示例 implementation。
+- `sales-onboarding`: Guides a teammate through project setup, including contact-list preferences, email service configuration, and required business information.
+- `sales-workflow`: Runs a checkpointed sales workflow covering research, qualification, outreach, record updates, follow-up, and reporting.
+- `example-sales`: A starter implementation that can be copied and adapted for a specific company.
 
-## 安装
+## Installation
 
-1. 下载或克隆本仓库。
-2. 将 `skills` 目录中的内容复制到 Codex Skills 目录：
+1. Download or clone this repository.
+2. Copy the contents of the `skills` directory into your Codex Skills directory:
 
    ```text
    ~/.codex/skills/
    ```
 
-3. 安装后目录结构应类似：
+3. The installed directory structure should look like this:
 
    ```text
    ~/.codex/skills/
@@ -26,22 +26,22 @@
    └── implementations/example-sales/
    ```
 
-更完整的步骤请参阅 [DEPLOYMENT.md](DEPLOYMENT.md)。
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the complete setup instructions.
 
-## 开始使用
+## Getting started
 
-1. 首次运行 `sales-onboarding`，根据聊天引导完成配置。
-2. 复制 `implementations/example-sales`，创建自己的销售 implementation。
-3. 在配置状态为 `ready` 后，通过该 implementation 调用 `sales-workflow`。
+1. Run `sales-onboarding` and complete the guided setup.
+2. Copy `implementations/example-sales` to create an implementation for your company.
+3. Once the configuration status is `ready`, use the implementation to run `sales-workflow`.
 
-邮件发送和 Contact List 写入默认都需要明确配置及授权。系统不会猜测联系人邮箱，也不会将未确认的发送标记为成功。
+Email delivery and contact-list writes require explicit configuration and authorization. The workflow never guesses contact email addresses or treats unconfirmed deliveries as successful.
 
-## 配置与安全
+## Configuration and security
 
-- 仓库中的 YAML 文件仅为示例，不包含真实凭证或客户资料。
-- 不要提交密码、API Key、Token、真实客户数据或包含个人信息的运行产物。
-- 建议只提交脱敏后的示例配置；真实配置请保存在本地。
+- The YAML files in this repository contain example values only. They do not include real credentials or customer data.
+- Never commit passwords, API keys, tokens, customer records, or runtime artifacts containing personal information.
+- Commit only sanitized example configurations and keep real business configurations local.
 
 ## License
 
-本项目采用 [MIT License](LICENSE)。
+This project is licensed under the [MIT License](LICENSE).

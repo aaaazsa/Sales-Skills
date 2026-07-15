@@ -1,13 +1,13 @@
-# Sales Skills 部署说明
+# Sales Skills Deployment Guide
 
-1. 解压 `skills.zip`。
-2. 将解压出的 `skills` 文件夹内容复制到 Codex 的 Skill 目录：
+1. Download or clone this repository.
+2. Copy the contents of the `skills` directory into your Codex Skills directory:
 
    ```text
    ~/.codex/skills/
    ```
 
-   完成后应包含：
+   The resulting structure should include:
 
    ```text
    ~/.codex/skills/
@@ -16,7 +16,8 @@
    └── implementations/example-sales/
    ```
 
-3. 首次使用时，运行 `sales-onboarding`。它会在聊天中引导你选择 Contact List、连接或关闭 Agent Mail，并收集必要的业务信息。
-4. 配置完成后，使用 `example-sales` implementation 执行销售自动化。
+3. Run `sales-onboarding` the first time you use the package. It will guide you through selecting a contact list, connecting or disabling Agent Mail, and providing the business information required by your enabled features.
+4. After setup is complete, use the `example-sales` implementation as a starting point for your sales automation.
 
-注意：不要将密码、密钥或真实客户数据提交到公开仓库。
+> [!IMPORTANT]
+> Never commit passwords, secrets, credentials, or real customer data to a public repository.
