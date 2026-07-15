@@ -1,0 +1,54 @@
+schema_version: "1.0"
+implementation_id: example-sales
+
+setup:
+  status: incomplete
+  project_folder: null
+  requested_features: [prospecting]
+
+contact_list:
+  enabled: null
+  mode: pending
+  path: null
+  discovery:
+    extensions: [.xlsx, .xls, .csv, .tsv]
+    filename_keywords: [contact, customer, client, lead, 客户, 联系人]
+  sync_timing: immediately_after_verified_send
+  final_decline_confirmed: false
+
+company: {name: null, website: null}
+sender: {name: null, title: null, email: null, signature: null}
+products: {catalog: []}
+industry: {target_markets: [], target_channels: [], research_sources: []}
+
+lead_retention:
+  email_requirements: {require_contact_email: true}
+  descriptive_fields: [company_name, website, market, channel, source_url]
+  priority_labels: []
+
+manual_contact_lookup:
+  enabled: true
+  trigger_status: decision_maker_found_no_email
+  delivery: customer_chat
+  send_only_when_authorized: true
+  required_fields: [company_name, website, contact_name, contact_role, company_association, contact_source_url, role_source_url]
+  customer_request: 请协助提供或查找该负责人的可靠工作邮箱；系统不会猜测邮箱格式或自动发送。
+
+email:
+  enabled: null
+  provider: agent.qq.com
+  connection_status: pending
+  authorized_account: null
+  communication_rules: []
+  template: {version: "1.0", subject: "", body: ""}
+
+crm: {tracker_path: null, source_sheet: null, field_mapping: {}}
+reporting: {weekly_report_path: null}
+tools:
+  research: {adapter: null}
+  email: {adapter: null}
+  records: {adapter: null}
+  checkpoint: {adapter: null}
+  report: {adapter: null}
+runtime: {run_store: ./runtime/checkpoints, retry_limit: 1, timeout_seconds: 60}
+evaluation: {enabled: true, event_store: ./runtime/evaluation-events, capture_cost: true, capture_duration: true, capture_human_intervention: true}

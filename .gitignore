@@ -1,0 +1,27 @@
+.DS_Store
+.idea/
+.vscode/
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime artifacts
+runtime/
+checkpoints/
+evaluation-events/
+logs/
+
+# Customer and contact data
+*.xlsx
+*.xls
+*.csv
+*.tsv
+
+# Local configuration overrides
+config.local.yaml
+config.private.yaml
+secrets.yaml
